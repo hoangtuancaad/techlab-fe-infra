@@ -1,0 +1,9 @@
+/environment/poc/local_state
+/environment/poc/.terraform
+# /environment/poc/.terraform.lock.hcl
+
+.env
+.DS_Store
+*.zip
+
+/local
