@@ -23,14 +23,14 @@ resource "aws_ecs_task_definition" "techlab_management_fe" {
           awslogs-region        = var.logs_region
           awslogs-stream-prefix = "api"
         },
-        secrets = [
-          {
-            name      = "NEXTAUTH_SECRET"
-            valueFrom = "${var.secret_arn}:NextAuthSecret::"
-          }
-        ]
         secretOptions = []
-      }
+      },
+      secrets = [
+        {
+          name      = "NEXTAUTH_SECRET"
+          valueFrom = "${var.secret_arn}:NextAuthSecret::"
+        }
+      ]
     },
   ])
 
