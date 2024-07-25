@@ -34,3 +34,9 @@ variable "ecs_task_container_role_arn" {
   type        = string
   description = "The ARN of the ECS task container role"
 }
+
+# Secrets
+variable "secret_arn" {
+  type        = string
+  description = "The ARN of the secret"
+}

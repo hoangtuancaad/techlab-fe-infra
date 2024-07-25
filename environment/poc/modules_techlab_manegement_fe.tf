@@ -23,6 +23,7 @@ module "techlab_management_fe_ecs" {
   security_group_ecs_task_service = module.network.techlab_management_fe_security_group_ecs_task_service
   ecs_task_execution_role_arn     = module.techlab_management_fe_iam.techsup_task_execution_role_arn
   ecs_task_container_role_arn     = module.techlab_management_fe_iam.techsup_task_container_role_arn
+  secret_arn                      = module.techlab_management_fe_secret_manager.secret_arn
 }
 
 module "techlab_management_fe_iam" {
@@ -33,4 +34,3 @@ module "techlab_management_fe_iam" {
   secert_arn       = module.techlab_management_fe_secret_manager.secret_arn
   ecr_arn          = module.techlab_management_fe_ecr.ecr_arn
 }
-
