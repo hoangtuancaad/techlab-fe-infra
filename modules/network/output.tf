@@ -5,3 +5,7 @@ output "pub_subnet_id_1a" {
 output "techlab_management_fe_security_group_ecs_task_service" {
   value = aws_security_group.techlab_management_fe_allow_http.id
 }
+
+output "techlab_homepage_fe_security_group_ecs_task_service" {
+  value = aws_security_group.techlab_homepage_fe_allow_http.id
+}

@@ -1,3 +1,4 @@
+//** Secret Management Module **//
 module "techlab_management_fe_secret_manager" {
   source = "../../modules/secret_manager/techlab_management_fe"
 
@@ -5,6 +6,7 @@ module "techlab_management_fe_secret_manager" {
   environment_name = var.environment_name
 }
 
+//** ECR Module **//
 module "techlab_management_fe_ecr" {
   source = "../../modules/ecr/techlab_management_fe"
 
@@ -12,6 +14,7 @@ module "techlab_management_fe_ecr" {
   environment_name = var.environment_name
 }
 
+//** ECS Module **//
 module "techlab_management_fe_ecs" {
   source = "../../modules/ecs/techlab_management_fe"
 
@@ -26,6 +29,7 @@ module "techlab_management_fe_ecs" {
   secret_arn                      = module.techlab_management_fe_secret_manager.secret_arn
 }
 
+//** IAM Module **//
 module "techlab_management_fe_iam" {
   source = "../../modules/iam/techlab_management_fe"
 
