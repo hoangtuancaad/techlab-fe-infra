@@ -6,11 +6,11 @@ resource "aws_ecs_service" "techlab_homepage_service" {
   desired_count   = 1
   launch_type     = "FARGATE"
 
-  #   load_balancer {
-  #     target_group_arn = var.target_group_arn
-  #     container_name   = "techlab-homepage-api"
-  #     container_port   = 80
-  #   }
+  load_balancer {
+    target_group_arn = var.target_group_arn
+    container_name   = "techlab-homepage-fe"
+    container_port   = 80
+  }
 
   network_configuration {
     subnets          = [var.public_subnet_id]

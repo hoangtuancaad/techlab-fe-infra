@@ -40,3 +40,10 @@ variable "secret_arn" {
   type        = string
   description = "The ARN of the secret"
 }
+
+# Load Balancer
+variable "target_group_arn" {
+  type        = string
+  description = "The ARN of the target group"
+
+}

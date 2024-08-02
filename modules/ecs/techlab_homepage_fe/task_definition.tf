@@ -25,11 +25,17 @@ resource "aws_ecs_task_definition" "techlab_homepage_fe" {
         },
         secretOptions = []
       },
+      environment : [
+        {
+          name  = "NEXTAUTH_URL"
+          value = "http://localhost:80"
+        },
+      ],
       secrets = [
         {
           name      = "NEXTAUTH_SECRET"
           valueFrom = "${var.secret_arn}:NextAuthSecret::"
-        }
+        },
       ]
     },
   ])
