@@ -1,5 +1,6 @@
 /environments/poc/local_state
 /environments/poc/.terraform
+*.gz
 # /environmens/poc/.terraform.lock.hcl
 
 .env
