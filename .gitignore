@@ -1,6 +1,6 @@
-/environment/poc/local_state
-/environment/poc/.terraform
-# /environment/poc/.terraform.lock.hcl
+/environments/poc/local_state
+/environments/poc/.terraform
+# /environmens/poc/.terraform.lock.hcl
 
 .env
 .DS_Store

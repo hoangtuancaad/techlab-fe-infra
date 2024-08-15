@@ -38,3 +38,28 @@ module "techlab_management_fe_iam" {
   secert_arn       = module.techlab_management_fe_secret_manager.secret_arn
   ecr_arn          = module.techlab_management_fe_ecr.ecr_arn
 }
+
+
+//** Load Balancer Module **//
+module "techlab_management_fe_load_balancer" {
+  source = "../../modules/load_balancer/techlab_management_fe"
+
+  // Variables for the module
+  environment_name                    = var.environment_name
+  aws_security_group_load_balancer_id = module.network.techlab_management_fe_sercurity_group_allow_https_id
+  subnet_1a_load_balancer_id          = module.network.pub_subnet_id_1a
+  subnet_1c_load_balancer_id          = module.network.pub_subnet_id_1c
+  vpc_id                              = module.network.vpc_id
+  certificate_arn                     = module.certificate_manager.rpa_vt_lab_opetech_jp_certificate_arn
+}
+
+//** Route53 Module **//
+module "techlab_management_fe_route53" {
+  source = "../../modules/route53/techlab_management_fe"
+
+  // Variables for the module
+  techlab_management_lb_dns_name       = module.techlab_management_fe_load_balancer.lb_dns_name
+  techlab_management_lb_zone_id        = module.techlab_management_fe_load_balancer.lb_zone_id
+  domain_rpa_vt_lab_opetech_jp_zone_id = module.domain.domain_rpa_vt_lab_opetech_jp_zone_id
+  domain_rpa_vt_lab_opetech_jp_name    = module.domain.domain_rpa_vt_lab_opetech_jp_name
+}

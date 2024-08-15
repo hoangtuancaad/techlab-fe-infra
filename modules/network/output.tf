@@ -13,11 +13,13 @@ output "vpc_id" {
 output "techlab_management_fe_security_group_ecs_task_service" {
   value = aws_security_group.techlab_management_fe_allow_http.id
 }
-
 output "techlab_homepage_fe_security_group_ecs_task_service" {
   value = aws_security_group.techlab_homepage_fe_allow_http.id
 }
 
 output "techlab_homepage_fe_sercurity_group_allow_https_id" {
   value = aws_security_group.techlab_homepage_fe_allow_https.id
+}
+output "techlab_management_fe_sercurity_group_allow_https_id" {
+  value = aws_security_group.techlab_management_fe_allow_https.id
 }
